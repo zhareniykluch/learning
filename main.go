@@ -2,42 +2,9 @@ package main
 
 import (
 	"fmt"
+	funcs "iamchurka/fuctions"
 	"iamchurka/models"
 )
-
-func Task1(data1 []models.Person) map[string]int {
-	r := make(map[string]int)
-	for _, v := range data1 {
-		r[v.Name] = v.Age
-	}
-	return r
-}
-
-func Task2(numberSlice []models.Numbers) models.Numbers {
-	result := models.Numbers{}
-	for _, v := range numberSlice {
-		result.Chisla += v.Chisla
-	}
-	return result
-}
-
-func Task3(rides []models.Cars, sort int) []string {
-	r := []string{}
-	for _, v := range rides {
-		if v.Year == sort {
-			r = append(r, v.Brand, v.Model)
-		}
-	}
-	return r
-}
-
-func Task4(muzika []models.Playlist) {
-	addSong := "Tyler, The Creator - sweet, i thought you wanted to dance"
-	for _, v := range muzika {
-		v.Songs = append(v.Songs, addSong)
-		fmt.Println(v.Name, v.Songs)
-	}
-}
 
 func main() {
 	person1 := models.Person{"Kevin", 25, "Shabani"}
@@ -45,10 +12,10 @@ func main() {
 	data1 := []models.Person{}
 	data1 = append(data1, person1)
 	data1 = append(data1, person2)
-	fmt.Println(Task1(data1)) ///////////////////////// Первая таска типа
+	fmt.Println(funcs.Task1(data1)) ///////////////////////// Первая таска типа
 
 	numberSlice := []models.Numbers{{2}, {5}, {7}, {6}}
-	fmt.Println(Task2(numberSlice)) //////////////////////////// вторая таска типа
+	fmt.Println(funcs.Task2(numberSlice)) //////////////////////////// вторая таска типа
 
 	sort := 1995
 	rides := []models.Cars{
@@ -78,7 +45,7 @@ func main() {
 			Year:  1989,
 		},
 	}
-	fmt.Println(Task3(rides, sort)) ///////////////////////// третья таска типа
+	fmt.Println(funcs.Task3(rides, sort)) ///////////////////////// третья таска типа
 
 	muzika := []models.Playlist{
 		{
@@ -87,5 +54,5 @@ func main() {
 		},
 	}
 	fmt.Println(muzika)
-	Task4(muzika)
+	funcs.Task4(muzika)
 }
